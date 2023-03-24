@@ -12,6 +12,8 @@
     "@chakra-ui/react": "^2.5.3",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@hookform/resolvers": "^3.0.0",
+    "chakra-react-select": "^4.6.0",
     "chakra-ui-steps": "^2.0.4",
     "framer-motion": "^10.8.5",
     "immer": "^9.0.21",
@@ -19,7 +21,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.7",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.8.0",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "18.15.5",
@@ -27,6 +30,6 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
-    "typescript": "5.0.2"
+    "typescript": "4.9.5"
   }
 }
