@@ -57,7 +57,7 @@ export const RadioCard = ({
 			>
 				{Icon && (
 					<Box sx={{ p: 4 }}>
-						<Icon size='48px' />
+						<Icon size='4em' />
 					</Box>
 				)}
 				{children}

@@ -52,6 +52,7 @@ const EmotionsSelect = () => {
 				options={emotions}
 				closeMenuOnSelect={false}
 				onChange={field.onChange}
+				size='lg'
 			/>
 			{errors.emotions && <ErrorMessage message={errors.emotions.message || ''} />}
 		</Box>
@@ -92,14 +93,8 @@ export const Step1 = () => {
 					How are you feeling today?
 				</Heading>
 				<Text sx={{ mt: 4 }}>Select an icon below to get started.</Text>
-				<RadioGroup
-					mb={4}
-					mx={4}
-					name='Step1'
-					defaultValue={field.value}
-					sx={{ mt: 8 }}
-				>
-					<Stack {...group} spacing={4} direction='row'>
+				<RadioGroup mb={4} name='Step1' defaultValue={field.value} sx={{ mt: 8 }}>
+					<Stack {...group} spacing={4} direction='column'>
 						{options.map(({ value, label, icon }, i) => {
 							const radio = getRadioProps({ value })
 							return (

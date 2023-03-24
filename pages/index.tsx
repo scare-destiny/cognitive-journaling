@@ -105,12 +105,7 @@ const CognitiveJournalingForm = ({
 	return (
 		<Box sx={{ mt: 24 }}>
 			<FormProvider {...methods}>
-				<Steps
-					variant={variant}
-					activeStep={activeStep}
-					colorScheme='blue'
-					responsive
-				>
+				<Steps variant={variant} activeStep={activeStep} colorScheme='blue'>
 					{steps.map(({ label, content, description }) => (
 						<Step label={label} key={label} description={description}>
 							{content}
