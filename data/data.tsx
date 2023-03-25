@@ -25,3 +25,21 @@ export const emotions = [
 	{ value: 'satisfaction', label: 'Satisfaction' },
 	{ value: 'surprise', label: 'Surprise' },
 ]
+
+export const distortions = [
+	{ value: 'all-or-nothing thinking', label: 'All-or-Nothing Thinking' },
+	{ value: 'overgeneralization', label: 'Overgeneralization' },
+	{ value: 'mental filter', label: 'Mental Filter' },
+	{ value: 'disqualifying the positive', label: 'Disqualifying the Positive' },
+	{ value: 'jumping to conclusions', label: 'Jumping to Conclusions' },
+	{ value: 'mind reading', label: 'Mind Reading' },
+	{ value: 'fortune telling', label: 'Fortune Telling' },
+	{
+		value: 'magnification or minimization',
+		label: 'Magnification or Minimization',
+	},
+	{ value: 'emotional reasoning', label: 'Emotional Reasoning' },
+	{ value: 'should statements', label: 'Should Statements' },
+	{ value: 'labeling and mislabeling', label: 'Labeling and Mislabeling' },
+	{ value: 'personalization', label: 'Personalization' },
+]

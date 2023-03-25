@@ -6,12 +6,16 @@ import {
 	Text,
 	useColorModeValue,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Step, Steps, useSteps } from 'chakra-ui-steps'
 import { FormProvider, useForm } from 'react-hook-form'
 import { GiRocketFlight } from 'react-icons/gi'
 import { Step1, Step1Schema } from '../components/Step1'
 import { Step2, Step2Schema } from '../components/Step2'
+import { Step3, Step3Schema } from '../components/Step3'
+import { Step4, Step4Schema } from '../components/Step4'
+import { Step5, Step5Schema } from '../components/Step5'
 
 const steps = [
 	{
@@ -27,14 +31,17 @@ const steps = [
 	{
 		label: 'Step 3',
 		description: 'Evidence Against And For',
+		content: <Step3 />,
 	},
 	{
 		label: 'Step 4',
 		description: 'Cognitive Distortions And Alternative Thoughts',
+		content: <Step4 />,
 	},
 	{
 		label: 'Step 5',
 		description: 'Outcome And Action Plan',
+		content: <Step5 />,
 	},
 ]
 
@@ -53,7 +60,13 @@ const INITIAL_VALUES = {
 
 export type FormValues = typeof INITIAL_VALUES
 
-const schemaArr = [Step1Schema, Step2Schema]
+const schemaArr = [
+	Step1Schema,
+	Step2Schema,
+	Step3Schema,
+	Step4Schema,
+	Step5Schema,
+]
 
 export const ErrorMessage = ({ message }: { message: string }) => {
 	return (
@@ -81,6 +94,8 @@ const CognitiveJournalingForm = ({
 		initialStep: 0,
 	})
 
+	const [showDebugger, setShowDebugger] = useState(false)
+
 	const methods = useForm<FormValues>({
 		resolver: yupResolver(schemaArr[activeStep]),
 		defaultValues: INITIAL_VALUES,
@@ -89,8 +104,8 @@ const CognitiveJournalingForm = ({
 	const { handleSubmit } = methods
 
 	const onSubmit = () => {
+		console.log('test')
 		if (activeStep === steps.length - 1) {
-			// handle submission here
 		}
 		nextStep()
 	}
@@ -120,7 +135,10 @@ const CognitiveJournalingForm = ({
 					</Box>
 					<Heading>Woohoo!</Heading>
 					<Box sx={{ mb: 8, mt: 4 }}>
-						<Text>You&apos;ve completed the form!</Text>
+						<Text>
+							You&apos;ve just completed a cognitive journal entry, taking a brave step
+							towards self-reflection and personal growth.
+						</Text>
 					</Box>
 					<Button mx='auto' onClick={() => handleReset()}>
 						Reset
@@ -141,8 +159,11 @@ const CognitiveJournalingForm = ({
 					</Button>
 				</Flex>
 			)}
-			<Box as='pre' bg={bg} rounded='md' width='100%' p={4} mt={8}>
-				<code>{JSON.stringify(methods.watch(), null, 2)}</code>
+			<Box as='pre' bg={bg} rounded='md' width='100%' p={4} mt={16}>
+				{showDebugger && <code>{JSON.stringify(methods.watch(), null, 2)}</code>}
+				<Button onClick={() => setShowDebugger(!showDebugger)}>
+					Toggle Debugger
+				</Button>
 			</Box>
 		</Box>
 	)

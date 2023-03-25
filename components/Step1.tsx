@@ -45,7 +45,7 @@ const EmotionsSelect = () => {
 			<Heading size='lg' sx={{ mt: 8 }}>
 				Which emotions do you experience right now?
 			</Heading>
-			<Text sx={{ mt: 4 }}>Pick any emotions you experience.</Text>
+			<Text sx={{ mt: 4, mb: 4 }}>Pick any emotions you experience.</Text>
 			<Select
 				isMulti
 				name='emotions'
@@ -53,6 +53,7 @@ const EmotionsSelect = () => {
 				closeMenuOnSelect={false}
 				onChange={field.onChange}
 				size='lg'
+				defaultValue={field.value}
 			/>
 			{errors.emotions && <ErrorMessage message={errors.emotions.message || ''} />}
 		</Box>
