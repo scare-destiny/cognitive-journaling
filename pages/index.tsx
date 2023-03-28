@@ -115,7 +115,18 @@ const CognitiveJournalingForm = ({
 	const bg = useColorModeValue('gray.50', 'gray.800')
 
 	const handleReset = () => {
-		reset()
+		reset({
+			mood: '',
+			situation: '',
+			emotions: [],
+			automaticThoughts: '',
+			evidenceSupporting: '',
+			evidenceAgainst: '',
+			cognitiveDistortions: [],
+			alternativeThoughts: '',
+			outcome: '',
+			actionPlan: '',
+		})
 		methods.reset()
 	}
 
