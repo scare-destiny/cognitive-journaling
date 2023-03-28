@@ -103,8 +103,10 @@ const CognitiveJournalingForm = ({
 
 	const { handleSubmit } = methods
 
+	const { getValues } = useForm()
+
 	const onSubmit = () => {
-		console.log('test')
+		console.log(methods.getValues())
 		if (activeStep === steps.length - 1) {
 		}
 		nextStep()
@@ -120,7 +122,7 @@ const CognitiveJournalingForm = ({
 	return (
 		<Box sx={{ mt: 24 }}>
 			<FormProvider {...methods}>
-				<Steps variant={variant} activeStep={activeStep} colorScheme='blue'>
+				<Steps variant='circles-alt' activeStep={activeStep} colorScheme='pink'>
 					{steps.map(({ label, content, description }) => (
 						<Step label={label} key={label} description={description}>
 							{content}
@@ -139,6 +141,7 @@ const CognitiveJournalingForm = ({
 							You&apos;ve just completed a cognitive journal entry, taking a brave step
 							towards self-reflection and personal growth.
 						</Text>
+						<Text sx={{ mt: 4 }}>Your results: </Text>
 					</Box>
 					<Button mx='auto' onClick={() => handleReset()}>
 						Reset

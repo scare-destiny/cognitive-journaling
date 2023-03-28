@@ -41,7 +41,7 @@ const AlternativeThoughts = () => {
 			</Heading>
 			<Text sx={{ mt: 4, mb: 4 }}>
 				Generate more balanced, rational alternative thoughts to challenge the
-				initial automatic thoughts..
+				initial automatic thoughts.
 			</Text>
 			<Textarea
 				sx={{ mt: 8 }}
@@ -69,6 +69,10 @@ export const Step4 = () => {
 		control,
 	})
 
+	const methods = useFormContext()
+	const evidenceSupporting = methods.getValues('evidenceSupporting')
+	const evidenceAgainst = methods.getValues('evidenceAgainst')
+
 	return (
 		<>
 			<Box
@@ -79,13 +83,24 @@ export const Step4 = () => {
 					alignItems: 'center',
 				}}
 			>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					Evidence supporting you thoughts:{' '}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					{evidenceSupporting}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					Evidence against your thoughts:{' '}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					{evidenceAgainst}
+				</Text>
 				<Heading size='lg' sx={{ mt: 8 }}>
 					Cognitive distortions:
 				</Heading>
 				<Text sx={{ mt: 4, mb: 4 }}>
 					Identify the cognitive distortions present in the automatic thoughts (e.g.,
-					all-or-nothing thinking, overgeneralization, mental filtering, etc.). You
-					can provide a brief description of each distortion for users`&apos
+					all-or-nothing thinking, overgeneralization, mental filtering, etc.).
 					reference.
 				</Text>
 				<Select

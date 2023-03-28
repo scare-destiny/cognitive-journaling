@@ -63,6 +63,10 @@ export const Step3 = () => {
 		control,
 	})
 
+	const methods = useFormContext()
+	const situation = methods.getValues('situation')
+	const automaticThoughts = methods.getValues('automaticThoughts')
+
 	return (
 		<>
 			<Box
@@ -73,6 +77,18 @@ export const Step3 = () => {
 					alignItems: 'center',
 				}}
 			>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					Here&apos;s the situation you&apos;ve described:{' '}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					{situation}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					And here&apos;s the automatic thoughts you&apos;ve listed:{' '}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					{automaticThoughts}
+				</Text>
 				<Heading size='lg' sx={{ mt: 8 }}>
 					Evidence supporting the thoughts.
 				</Heading>

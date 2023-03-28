@@ -1,5 +1,6 @@
 import { Box, Heading } from '@chakra-ui/layout'
-import { Text, Textarea } from '@chakra-ui/react'
+import { Text, Textarea, List, ListItem, ListIcon } from '@chakra-ui/react'
+import { CheckIcon } from '@chakra-ui/icons'
 import { useController, useFormContext } from 'react-hook-form'
 import * as yup from 'yup'
 import { ErrorMessage, FormValues } from '../pages/index'
@@ -63,6 +64,10 @@ export const Step5 = () => {
 		control,
 	})
 
+	const methods = useFormContext()
+	const cognitiveDistortions = methods.getValues('cognitiveDistortions')
+	const alternativeThoughts = methods.getValues('alternativeThoughts')
+
 	return (
 		<>
 			<Box
@@ -73,6 +78,24 @@ export const Step5 = () => {
 					alignItems: 'center',
 				}}
 			>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					List of cognitive distortions:{' '}
+				</Text>
+				<List mt={2} spacing={3}>
+					{cognitiveDistortions.map((cognitiveDistortion) => (
+						<ListItem key={cognitiveDistortion} fontWeight={200}>
+							{' '}
+							<ListIcon as={CheckIcon} color='green.500' />
+							{cognitiveDistortion?.value}
+						</ListItem>
+					))}
+				</List>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					Alternative thoughts:{' '}
+				</Text>
+				<Text sx={{ mt: 4 }} fontWeight={200}>
+					{alternativeThoughts}
+				</Text>
 				<Heading size='lg' sx={{ mt: 8 }}>
 					Outcome.
 				</Heading>

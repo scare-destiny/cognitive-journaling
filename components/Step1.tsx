@@ -22,8 +22,7 @@ const options = [
 ]
 
 const EmotionsSelect = () => {
-	const { control } = useFormContext<FormValues>()
-
+	const { control } = useFormContext()
 	const {
 		field,
 		formState: { errors },
@@ -32,6 +31,8 @@ const EmotionsSelect = () => {
 		control,
 		defaultValue: [],
 	})
+
+
 
 	return (
 		<Box
