@@ -84,7 +84,7 @@ export const Step4 = () => {
 				}}
 			>
 				<Text sx={{ mt: 4 }} fontWeight={200}>
-					Evidence supporting you thoughts:{' '}
+					Evidence supporting you thoughts.{' '}
 				</Text>
 				<Text sx={{ mt: 4 }} fontWeight={200}>
 					{evidenceSupporting}

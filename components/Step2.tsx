@@ -35,7 +35,7 @@ const AutomaticThoughts = () => {
 			}}
 		>
 			<Heading size='lg' sx={{ mt: 8 }}>
-				Please share your thoughts
+				Please share your thoughts.
 			</Heading>
 			<Text sx={{ mt: 4 }}>
 				Write down the automatic thoughts that occurred during the situation (i.e.,

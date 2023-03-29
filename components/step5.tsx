@@ -92,7 +92,7 @@ export const Step5 = () => {
 					))}
 				</List>
 				<Text sx={{ mt: 4 }} fontWeight={200}>
-					Alternative thoughts:{' '}
+					Alternative thoughts.{' '}
 				</Text>
 				<Text sx={{ mt: 4 }} fontWeight={200}>
 					{alternativeThoughts}
