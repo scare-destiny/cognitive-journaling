@@ -12,7 +12,7 @@ import { emotions } from '../data/data'
 
 export const Step1Schema = yup.object().shape({
 	mood: yup.string().required('This value is required.'),
-	emotions: yup.array().min(1, 'Please share your mood.'),
+	emotions: yup.array().min(1, 'Please share your emotions.'),
 })
 
 const options = [
@@ -32,8 +32,6 @@ const EmotionsSelect = () => {
 		defaultValue: [],
 	})
 
-
-
 	return (
 		<Box
 			sx={{
@@ -46,7 +44,10 @@ const EmotionsSelect = () => {
 			<Heading size='lg' sx={{ mt: 8 }}>
 				Which emotions do you experience right now?
 			</Heading>
-			<Text sx={{ mt: 4, mb: 4 }}>Pick any emotions you experience.</Text>
+			<Text sx={{ mt: 4, mb: 4 }}>
+				Pick any emotions you experience. And don&apos;t worry, your data won&apos;t
+				be sent anywhere
+			</Text>
 			<Select
 				isMulti
 				name='emotions'
@@ -54,7 +55,7 @@ const EmotionsSelect = () => {
 				closeMenuOnSelect={false}
 				onChange={field.onChange}
 				size='lg'
-				defaultValue={field.value}
+				colorScheme='blue'
 			/>
 			{errors.emotions && <ErrorMessage message={errors.emotions.message || ''} />}
 		</Box>

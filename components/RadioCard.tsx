@@ -34,7 +34,7 @@ export const RadioCard = ({
 			onChange={(val) => console.log('val', val)}
 			textTransform='capitalize'
 			_checked={{
-				bg: 'blue.500',
+				bg: 'pink.400',
 				color: 'white',
 				borderColor: 'teal.600',
 			}}

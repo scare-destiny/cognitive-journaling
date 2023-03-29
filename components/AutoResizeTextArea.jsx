@@ -2,7 +2,7 @@ import { Textarea } from "@chakra-ui/react";
 import ResizeTextarea from "react-textarea-autosize";
 import React from "react";
 
-export const AutoResizeTextarea = React.forwardRef((props, ref) => {
+ const AutoResizeTextarea = React.forwardRef((props, ref) => {
   return (
     <Textarea
       minH="unset"
@@ -16,3 +16,7 @@ export const AutoResizeTextarea = React.forwardRef((props, ref) => {
     />
   );
 });
+
+AutoResizeTextarea.displayName = 'AutoResizeTextarea'
+
+export {AutoResizeTextarea}

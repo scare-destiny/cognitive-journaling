@@ -4,8 +4,15 @@ import {
 	Flex,
 	Heading,
 	Text,
+	List,
+	ListItem,
+	ListIcon,
+	Highlight,
 	useColorModeValue,
+	Container,
+	Center,
 } from '@chakra-ui/react'
+import { CheckIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Step, Steps, useSteps } from 'chakra-ui-steps'
@@ -16,6 +23,7 @@ import { Step2, Step2Schema } from '../components/Step2'
 import { Step3, Step3Schema } from '../components/Step3'
 import { Step4, Step4Schema } from '../components/Step4'
 import { Step5, Step5Schema } from '../components/Step5'
+import { FinalResults } from '../components/FinalResults'
 
 const steps = [
 	{
@@ -103,10 +111,9 @@ const CognitiveJournalingForm = ({
 
 	const { handleSubmit } = methods
 
-	const { getValues } = useForm()
+	const formResults = methods.getValues()
 
 	const onSubmit = () => {
-		console.log(methods.getValues())
 		if (activeStep === steps.length - 1) {
 		}
 		nextStep()
@@ -142,7 +149,7 @@ const CognitiveJournalingForm = ({
 							You&apos;ve just completed a cognitive journal entry, taking a brave step
 							towards self-reflection and personal growth.
 						</Text>
-						<Text sx={{ mt: 4 }}>Your results: </Text>
+						<FinalResults data={formResults} />
 					</Box>
 					<Button mx='auto' onClick={() => handleReset()}>
 						Reset
