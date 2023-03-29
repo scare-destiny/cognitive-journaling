@@ -1,10 +1,10 @@
 import { Box, Heading } from '@chakra-ui/layout'
-import { Text, Textarea, List, ListItem, ListIcon } from '@chakra-ui/react'
+import { Text, List, ListItem, ListIcon } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
 import { useController, useFormContext } from 'react-hook-form'
 import * as yup from 'yup'
 import { ErrorMessage, FormValues } from '../pages/index'
-import { Key } from 'react'
+import { AutoResizeTextarea } from './AutoResizeTextArea'
 
 export const Step2Schema = yup.object().shape({
 	situation: yup.string().required('This value is required.'),
@@ -41,7 +41,7 @@ const AutomaticThoughts = () => {
 				Write down the automatic thoughts that occurred during the situation (i.e.,
 				what you were thinking).
 			</Text>
-			<Textarea
+			<AutoResizeTextarea
 				sx={{ mt: 8 }}
 				name='emotions'
 				onChange={field.onChange}
@@ -88,7 +88,7 @@ export const Step2 = () => {
 					You also experience following emotions:{' '}
 				</Text>
 				<List mt={2} spacing={3}>
-					{emotions.map((emotion: Key | null | undefined) => (
+					{emotions.map((emotion) => (
 						<ListItem key={emotion} fontWeight={200}>
 							{' '}
 							<ListIcon as={CheckIcon} color='green.500' />
@@ -103,7 +103,7 @@ export const Step2 = () => {
 					Situation or event that led to the emotional response.
 				</Heading>
 				<Text sx={{ mt: 4 }}>Please type your response below.</Text>
-				<Textarea
+				<AutoResizeTextarea
 					onChange={field.onChange}
 					mb={4}
 					name='Step2'

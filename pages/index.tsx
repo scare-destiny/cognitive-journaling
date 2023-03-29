@@ -115,23 +115,13 @@ const CognitiveJournalingForm = ({
 	const bg = useColorModeValue('gray.50', 'gray.800')
 
 	const handleReset = () => {
-		reset({
-			mood: '',
-			situation: '',
-			emotions: [],
-			automaticThoughts: '',
-			evidenceSupporting: '',
-			evidenceAgainst: '',
-			cognitiveDistortions: [],
-			alternativeThoughts: '',
-			outcome: '',
-			actionPlan: '',
-		})
+		reset()
 		methods.reset()
+		window.location.reload()
 	}
 
 	return (
-		<Box sx={{ mt: 24 }}>
+		<Box sx={{ mt: 24 }} paddingX='16px'>
 			<FormProvider {...methods}>
 				<Steps variant='circles-alt' activeStep={activeStep} colorScheme='pink'>
 					{steps.map(({ label, content, description }) => (

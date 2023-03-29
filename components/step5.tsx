@@ -1,5 +1,6 @@
 import { Box, Heading } from '@chakra-ui/layout'
-import { Text, Textarea, List, ListItem, ListIcon } from '@chakra-ui/react'
+import { Text, List, ListItem, ListIcon } from '@chakra-ui/react'
+import { AutoResizeTextarea } from './AutoResizeTextArea'
 import { CheckIcon } from '@chakra-ui/icons'
 import { useController, useFormContext } from 'react-hook-form'
 import * as yup from 'yup'
@@ -38,7 +39,7 @@ const ActionPlan = () => {
 				Describe any action steps or coping strategies to address the situation and
 				improve emotional well-being.
 			</Text>
-			<Textarea
+			<AutoResizeTextarea
 				sx={{ mt: 8 }}
 				name='actionPlan'
 				onChange={field.onChange}
@@ -102,7 +103,7 @@ export const Step5 = () => {
 				<Text sx={{ mt: 4 }}>
 					Reflect on how the alternative thoughts affect the emotions and situation.
 				</Text>
-				<Textarea
+				<AutoResizeTextarea
 					onChange={field.onChange}
 					mb={4}
 					name='Step3'

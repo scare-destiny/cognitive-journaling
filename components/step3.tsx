@@ -1,6 +1,6 @@
 import { Box, Heading } from '@chakra-ui/layout'
-import { Text, Textarea } from '@chakra-ui/react'
-
+import { Text } from '@chakra-ui/react'
+import { AutoResizeTextarea } from './AutoResizeTextArea'
 import { useController, useFormContext } from 'react-hook-form'
 import * as yup from 'yup'
 import { ErrorMessage, FormValues } from '../pages/index'
@@ -37,7 +37,7 @@ const EvidenceAgainst = () => {
 			<Text sx={{ mt: 4 }}>
 				List any evidence that contradicts the automatic thoughts.
 			</Text>
-			<Textarea
+			<AutoResizeTextarea
 				sx={{ mt: 8 }}
 				name='emotions'
 				onChange={field.onChange}
@@ -95,7 +95,7 @@ export const Step3 = () => {
 				<Text sx={{ mt: 4 }}>
 					List any evidence that supports the automatic thoughts.
 				</Text>
-				<Textarea
+				<AutoResizeTextarea
 					onChange={field.onChange}
 					mb={4}
 					name='Step3'

@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from '@chakra-ui/layout'
-import { Textarea } from '@chakra-ui/react'
+import { AutoResizeTextarea } from './AutoResizeTextArea'
 import { Select } from 'chakra-react-select'
 import { useController, useFormContext } from 'react-hook-form'
 import * as yup from 'yup'
@@ -43,7 +43,7 @@ const AlternativeThoughts = () => {
 				Generate more balanced, rational alternative thoughts to challenge the
 				initial automatic thoughts.
 			</Text>
-			<Textarea
+			<AutoResizeTextarea
 				sx={{ mt: 8 }}
 				name='alternativeThoughts'
 				onChange={field.onChange}
