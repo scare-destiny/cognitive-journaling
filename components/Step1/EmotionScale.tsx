@@ -18,7 +18,6 @@ const EmotionScale = () => {
 		formState: { errors },
 	} = useController({
 		name: 'emotions',
-		control,
 	})
 
 	const amount = new Intl.NumberFormat('nl-NL', {
@@ -48,7 +47,7 @@ const EmotionScale = () => {
 					value={field.value.intensity}
 					maxWidth={['100%', '65%']}
 					colorScheme='blue'
-					onChange={(selected) => console.log(selected)}
+					onChange={(selected) => console.log(field)}
 					sx={{ mx: 'auto' }}
 				>
 					<SliderTrack sx={{ height: 1.5 }}>
