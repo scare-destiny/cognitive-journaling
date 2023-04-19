@@ -10,8 +10,10 @@ import {
 import { useController, useFormContext } from 'react-hook-form'
 import { ErrorMessage, FormValues } from '../../pages/index'
 
-const EmotionScale = () => {
+const EmotionScale = ({ emotion }) => {
 	const { control } = useFormContext<FormValues>()
+
+	console.log(`emotion is ${emotion.label}`)
 
 	const {
 		field,
