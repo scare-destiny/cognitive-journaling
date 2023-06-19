@@ -28,31 +28,34 @@ export const SubmissionCard: React.FC<SubmissionCardProps> = ({
 					Submission {index + 1} - {formattedTimestamp}
 				</Heading>
 				<Box mt='1' fontWeight='semibold' as='h4' lineHeight='tight' isTruncated>
-					{Object.entries(submission).map(([key, value], idx) => {
-						const isEmotionArray = Array.isArray(value) && value[0]?.label
-						return (
-							<Box key={idx} py={2} display='flex' alignItems='baseline'>
-								<Box
-									textTransform='capitalize'
-									ml='2'
-									fontWeight='semibold'
-									flexBasis='20%'
-									color='gray.500'
-								>
-									{key}
+					<Box overflowX='auto'>
+						{Object.entries(submission).map(([key, value], idx) => {
+							const isEmotionArray = Array.isArray(value) && value[0]?.label
+							return (
+								<Box key={idx} py={2} display='flex' alignItems='baseline'>
+									<Box
+										textTransform='capitalize'
+										ml='2'
+										fontWeight='semibold'
+										flexBasis='20%'
+										color='gray.500'
+									>
+										{key}
+									</Box>
+									<Box flexBasis='80%' ml='4'>
+										{' '}
+										{isEmotionArray
+											? value.map((item, idx) => (
+													<Badge key={idx} borderRadius='full' px='2' colorScheme='teal'>
+														{item.label}
+													</Badge>
+											  ))
+											: value}
+									</Box>
 								</Box>
-								<Box flexBasis='80%'>
-									{isEmotionArray
-										? value.map((item, idx) => (
-												<Badge key={idx} borderRadius='full' px='2' colorScheme='teal'>
-													{item.label}
-												</Badge>
-										  ))
-										: value}
-								</Box>
-							</Box>
-						)
-					})}
+							)
+						})}
+					</Box>
 				</Box>
 			</Box>
 		</Box>
