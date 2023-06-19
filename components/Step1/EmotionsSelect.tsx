@@ -4,7 +4,7 @@ import { Select } from 'chakra-react-select'
 import { ErrorMessage, FormValues } from '../../pages/index'
 import { emotions } from '../../data/data'
 
-const EmotionsSelect = () => {
+const EmotionsSelect = ({ setSelectedEmotions }) => {
 	const { control } = useFormContext()
 	const {
 		field,
@@ -14,6 +14,8 @@ const EmotionsSelect = () => {
 		control,
 		defaultValue: [],
 	})
+
+	console.log(field.value)
 
 	return (
 		<Box
@@ -36,7 +38,9 @@ const EmotionsSelect = () => {
 				name='emotions'
 				options={emotions}
 				closeMenuOnSelect={false}
-				onChange={field.onChange}
+				onChange={(selected) => {
+					field.onChange(selected)
+				}}
 				size='lg'
 				colorScheme='blue'
 			/>

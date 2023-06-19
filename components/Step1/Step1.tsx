@@ -1,6 +1,6 @@
 import * as yup from 'yup'
-
-import { EmotionsSelect, MoodSelect } from './index'
+import { useState } from 'react'
+import { EmotionsSelect, EmotionScale, MoodSelect } from './index'
 
 export const Step1Schema = yup.object().shape({
 	mood: yup.string().required('This value is required.'),
@@ -8,9 +8,11 @@ export const Step1Schema = yup.object().shape({
 })
 
 export const Step1 = () => {
+	const [selectedEmotions, setSelectedEmotions] = useState([])
+
 	return (
 		<>
-			<EmotionsSelect />
+			<EmotionsSelect setSelectedEmotions={setSelectedEmotions} />
 			<MoodSelect />
 		</>
 	)
