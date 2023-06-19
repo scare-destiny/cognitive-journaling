@@ -79,7 +79,7 @@ const schemaArr = [
 export const ErrorMessage = ({ message }: { message: string }) => {
 	return (
 		<Box
-			sx={{
+			sx={{ 
 				p: 2,
 				rounded: 'md',
 				boxShadow: 'sm',
