@@ -2,9 +2,10 @@ import { useFormContext, useController } from 'react-hook-form'
 import { Box, Heading, Text } from '@chakra-ui/react'
 import { Select } from 'chakra-react-select'
 import { ErrorMessage, FormValues } from '../../pages/index'
+import { EmotionScale } from './index.js'
 import { emotions } from '../../data/data'
 
-const EmotionsSelect = () => {
+const EmotionsSelect = ({ setSelectedEmotions }) => {
 	const { control } = useFormContext()
 	const {
 		field,
@@ -14,6 +15,8 @@ const EmotionsSelect = () => {
 		control,
 		defaultValue: [],
 	})
+
+	console.log(field.value)
 
 	return (
 		<Box
@@ -36,11 +39,17 @@ const EmotionsSelect = () => {
 				name='emotions'
 				options={emotions}
 				closeMenuOnSelect={false}
-				onChange={field.onChange}
+				onChange={(selected) => {
+					field.onChange(selected)
+				}}
 				size='lg'
 				colorScheme='blue'
 			/>
 			{errors.emotions && <ErrorMessage message={errors.emotions.message || ''} />}
+			{field.value.length > 0 &&
+				field.value.map((emotion) => (
+					<EmotionScale key={emotion} emotion={emotion} />
+				))}
 		</Box>
 	)
 }
