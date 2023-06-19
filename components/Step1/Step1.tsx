@@ -8,15 +8,11 @@ export const Step1Schema = yup.object().shape({
 })
 
 export const Step1 = () => {
-	const [selectedEmotions, setSelectedEmotions] = useState([])
+
 
 	return (
 		<>
-			<EmotionsSelect setSelectedEmotions={setSelectedEmotions} />
-<<<<<<< HEAD
-=======
-			{selectedEmotions.length > 0 && <EmotionScale />}
->>>>>>> c35b59f3ee8e49c3078a68cff2f68d38b8db3095
+			<EmotionsSelect />
 			<MoodSelect />
 		</>
 	)

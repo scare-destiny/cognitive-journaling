@@ -4,7 +4,7 @@ import { Select } from 'chakra-react-select'
 import { ErrorMessage, FormValues } from '../../pages/index'
 import { emotions } from '../../data/data'
 
-const EmotionsSelect = ({ setSelectedEmotions }) => {
+const EmotionsSelect = () => {
 	const { control } = useFormContext()
 	const {
 		field,
