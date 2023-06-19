@@ -13,6 +13,10 @@ export const Step1 = () => {
 	return (
 		<>
 			<EmotionsSelect setSelectedEmotions={setSelectedEmotions} />
+<<<<<<< HEAD
+=======
+			{selectedEmotions.length > 0 && <EmotionScale />}
+>>>>>>> c35b59f3ee8e49c3078a68cff2f68d38b8db3095
 			<MoodSelect />
 		</>
 	)
