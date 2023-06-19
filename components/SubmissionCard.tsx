@@ -85,7 +85,11 @@ export const SubmissionCard: React.FC<SubmissionCardProps> = ({
 								</AlertDialogContent>
 							</AlertDialogOverlay>
 						</AlertDialog>
-						<Button colorScheme='red' onClick={() => setIsOpen(true)}>
+						<Button
+							width={['full', 'auto']}
+							colorScheme='red'
+							onClick={() => setIsOpen(true)}
+						>
 							Delete
 						</Button>
 					</GridItem>
