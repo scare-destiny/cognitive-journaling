@@ -49,7 +49,7 @@ export const SubmissionCard: React.FC<SubmissionCardProps> = ({
 			<Box p='6'>
 				<Grid templateColumns='repeat(12, 1fr)' gap={6}>
 					<GridItem colSpan={10}>
-						<Heading size='md' fontWeight='medium'>
+						<Heading size='md' fontWeight='medium' mr='12'>
 							Submission - {formattedTimestamp}
 						</Heading>
 					</GridItem>
@@ -86,7 +86,7 @@ export const SubmissionCard: React.FC<SubmissionCardProps> = ({
 							</AlertDialogOverlay>
 						</AlertDialog>
 						<Button
-							width={['full', 'auto']}
+							minW='fit-content'
 							colorScheme='red'
 							onClick={() => setIsOpen(true)}
 						>
