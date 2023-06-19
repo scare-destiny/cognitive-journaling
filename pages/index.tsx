@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import {
 	Box,
 	Button,
@@ -15,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Step, Steps, useSteps } from 'chakra-ui-steps'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -80,7 +82,7 @@ const schemaArr = [
 export const ErrorMessage = ({ message }: { message: string }) => {
 	return (
 		<Box
-			sx={{ 
+			sx={{
 				p: 2,
 				rounded: 'md',
 				boxShadow: 'sm',
@@ -113,6 +115,8 @@ const CognitiveJournalingForm = ({
 	const { handleSubmit } = methods
 
 	const formResults = methods.getValues()
+
+	const router = useRouter()
 
 	const onSubmit = () => {
 		if (activeStep === steps.length - 1) {
@@ -155,6 +159,7 @@ const CognitiveJournalingForm = ({
 			})
 		} else {
 			formResults.timestamp = new Date().toISOString()
+			formResults.id = uuidv4()
 			saveSubmission(submissions, formResults)
 
 			toast({
@@ -218,6 +223,11 @@ const CognitiveJournalingForm = ({
 					</Button>
 				</Flex>
 			)}
+			<Center>
+				<Button variant='solid' mt='8' onClick={() => router.push('/submissions')}>
+					See all submissions
+				</Button>
+			</Center>
 			<Box as='pre' bg={bg} rounded='md' width='100%' p={4} mt={16}>
 				{showDebugger && <code>{JSON.stringify(methods.watch(), null, 2)}</code>}
 				<Button onClick={() => setShowDebugger(!showDebugger)}>
