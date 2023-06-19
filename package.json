@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^3.0.0",
     "chakra-react-select": "^4.6.0",
     "chakra-ui-steps": "^2.0.4",
+    "date-fns": "^2.30.0",
     "framer-motion": "^10.8.5",
     "immer": "^9.0.21",
     "next": "13.2.4",

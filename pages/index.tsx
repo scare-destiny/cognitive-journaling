@@ -11,6 +11,7 @@ import {
 	useColorModeValue,
 	Container,
 	Center,
+	useToast,
 } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
@@ -121,10 +122,49 @@ const CognitiveJournalingForm = ({
 
 	const bg = useColorModeValue('gray.50', 'gray.800')
 
+	const toast = useToast()
+
 	const handleReset = () => {
 		reset()
 		methods.reset()
 		window.location.reload()
+	}
+
+	const isDuplicateSubmission = (submissions, formResults) => {
+		return submissions.some(
+			(submission) => JSON.stringify(submission) === JSON.stringify(formResults)
+		)
+	}
+
+	const saveSubmission = (submissions, formResults) => {
+		submissions.push(formResults)
+		localStorage.setItem('cognitiveJournalData', JSON.stringify(submissions))
+	}
+
+	const saveResults = () => {
+		const storedData = localStorage.getItem('cognitiveJournalData')
+		let submissions = storedData ? JSON.parse(storedData) : []
+
+		if (isDuplicateSubmission(submissions, formResults)) {
+			toast({
+				title: 'Duplicate Submission',
+				description: 'You have already saved this entry.',
+				status: 'warning',
+				duration: 3000,
+				isClosable: true,
+			})
+		} else {
+			formResults.timestamp = new Date().toISOString()
+			saveSubmission(submissions, formResults)
+
+			toast({
+				title: 'Success',
+				description: 'Your entry has been saved.',
+				status: 'success',
+				duration: 3000,
+				isClosable: true,
+			})
+		}
 	}
 
 	return (
@@ -151,7 +191,15 @@ const CognitiveJournalingForm = ({
 						</Text>
 						<FinalResults data={formResults} />
 					</Box>
-					<Button mx='auto' onClick={() => handleReset()}>
+					<Button
+						variant='outline'
+						sx={{ mb: 8, mt: 4 }}
+						mx='auto'
+						onClick={() => saveResults()}
+					>
+						Save Results To My Device
+					</Button>
+					<Button variant='ghost' mx='auto' onClick={() => handleReset()}>
 						Reset
 					</Button>
 				</Flex>
