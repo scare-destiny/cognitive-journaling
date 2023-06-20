@@ -114,7 +114,7 @@ export const SubmissionCard: React.FC<SubmissionCardProps> = ({
 										{isEmotionArray
 											? value.map((item, idx) => (
 													<Badge key={idx} borderRadius='full' px='2' colorScheme='teal'>
-														{item.label}
+														{item.label} {item.intensityBefore}
 													</Badge>
 											  ))
 											: value}
