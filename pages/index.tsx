@@ -174,7 +174,6 @@ const CognitiveJournalingForm = ({
 
 	return (
 		<>
-		
 			<Box sx={{ mt: 24 }} paddingX='16px'>
 				<FormProvider {...methods}>
 					<Steps variant='circles-alt' activeStep={activeStep} colorScheme='pink'>
@@ -225,11 +224,11 @@ const CognitiveJournalingForm = ({
 						</Button>
 					</Flex>
 				)}
-				<Center>
+				{/* <Center>
 					<Button variant='solid' mt='8' onClick={() => router.push('/submissions')}>
 						See all submissions
 					</Button>
-				</Center>
+				</Center> */}
 				<Box as='pre' bg={bg} rounded='md' width='100%' p={4} mt={16}>
 					{showDebugger && <code>{JSON.stringify(methods.watch(), null, 2)}</code>}
 					<Button onClick={() => setShowDebugger(!showDebugger)}>

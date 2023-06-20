@@ -50,11 +50,6 @@ const SubmissionsPage: React.FC = () => {
 					</>
 				))
 			)}
-			<Center>
-				<Button mt='4' onClick={() => router.push('/')}>
-					Submit one more
-				</Button>
-			</Center>
 		</Box>
 	)
 }
