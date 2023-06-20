@@ -173,68 +173,71 @@ const CognitiveJournalingForm = ({
 	}
 
 	return (
-		<Box sx={{ mt: 24 }} paddingX='16px'>
-			<FormProvider {...methods}>
-				<Steps variant='circles-alt' activeStep={activeStep} colorScheme='pink'>
-					{steps.map(({ label, content, description }) => (
-						<Step label={label} key={label} description={description}>
-							{content}
-						</Step>
-					))}
-				</Steps>
-			</FormProvider>
-			{activeStep === steps.length ? (
-				<Flex p={4} sx={{ flexDir: 'column', alignItems: 'center' }}>
-					<Box sx={{ p: 8 }}>
-						<GiRocketFlight size={64} />
-					</Box>
-					<Heading>Woohoo!</Heading>
-					<Box sx={{ mb: 8, mt: 4 }}>
-						<Text>
-							You&apos;ve just completed a cognitive journal entry, taking a brave step
-							towards self-reflection and personal growth.
-						</Text>
-						<FinalResults data={formResults} />
-					</Box>
-					<Button
-						variant='outline'
-						sx={{ mb: 8, mt: 4 }}
-						mx='auto'
-						onClick={() => saveResults()}
-					>
-						Save Results To My Device
+		<>
+		
+			<Box sx={{ mt: 24 }} paddingX='16px'>
+				<FormProvider {...methods}>
+					<Steps variant='circles-alt' activeStep={activeStep} colorScheme='pink'>
+						{steps.map(({ label, content, description }) => (
+							<Step label={label} key={label} description={description}>
+								{content}
+							</Step>
+						))}
+					</Steps>
+				</FormProvider>
+				{activeStep === steps.length ? (
+					<Flex p={4} sx={{ flexDir: 'column', alignItems: 'center' }}>
+						<Box sx={{ p: 8 }}>
+							<GiRocketFlight size={64} />
+						</Box>
+						<Heading>Woohoo!</Heading>
+						<Box sx={{ mb: 8, mt: 4 }}>
+							<Text>
+								You&apos;ve just completed a cognitive journal entry, taking a brave
+								step towards self-reflection and personal growth.
+							</Text>
+							<FinalResults data={formResults} />
+						</Box>
+						<Button
+							variant='outline'
+							sx={{ mb: 8, mt: 4 }}
+							mx='auto'
+							onClick={() => saveResults()}
+						>
+							Save Results To My Device
+						</Button>
+						<Button variant='ghost' mx='auto' onClick={() => handleReset()}>
+							Reset
+						</Button>
+					</Flex>
+				) : (
+					<Flex width='100%' justify='center'>
+						<Button
+							isDisabled={activeStep === 0}
+							mr={4}
+							onClick={prevStep}
+							variant='ghost'
+						>
+							Prev
+						</Button>
+						<Button onClick={() => handleSubmit(onSubmit)()} type='submit'>
+							{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+						</Button>
+					</Flex>
+				)}
+				<Center>
+					<Button variant='solid' mt='8' onClick={() => router.push('/submissions')}>
+						See all submissions
 					</Button>
-					<Button variant='ghost' mx='auto' onClick={() => handleReset()}>
-						Reset
+				</Center>
+				<Box as='pre' bg={bg} rounded='md' width='100%' p={4} mt={16}>
+					{showDebugger && <code>{JSON.stringify(methods.watch(), null, 2)}</code>}
+					<Button onClick={() => setShowDebugger(!showDebugger)}>
+						Toggle Debugger
 					</Button>
-				</Flex>
-			) : (
-				<Flex width='100%' justify='center'>
-					<Button
-						isDisabled={activeStep === 0}
-						mr={4}
-						onClick={prevStep}
-						variant='ghost'
-					>
-						Prev
-					</Button>
-					<Button onClick={() => handleSubmit(onSubmit)()} type='submit'>
-						{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-					</Button>
-				</Flex>
-			)}
-			<Center>
-				<Button variant='solid' mt='8' onClick={() => router.push('/submissions')}>
-					See all submissions
-				</Button>
-			</Center>
-			<Box as='pre' bg={bg} rounded='md' width='100%' p={4} mt={16}>
-				{showDebugger && <code>{JSON.stringify(methods.watch(), null, 2)}</code>}
-				<Button onClick={() => setShowDebugger(!showDebugger)}>
-					Toggle Debugger
-				</Button>
+				</Box>
 			</Box>
-		</Box>
+		</>
 	)
 }
 
