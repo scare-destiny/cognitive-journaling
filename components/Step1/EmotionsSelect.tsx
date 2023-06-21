@@ -55,6 +55,7 @@ const EmotionsSelect = () => {
 				worry, your data won&apos;t be sent anywhere.
 			</Text>
 			<Select
+				style={{ zIndex: 2, position: 'relative' }}
 				isMulti
 				name='emotions'
 				options={emotions}
@@ -78,7 +79,11 @@ const EmotionsSelect = () => {
 						<SliderTrack>
 							<SliderFilledTrack />
 						</SliderTrack>
-						<SliderThumb boxSize={6} ml={2}>
+						<SliderThumb
+							boxSize={6}
+							ml={2}
+							style={{ zIndex: 0, position: 'relative' }}
+						>
 							{emotion.intensityBefore}
 						</SliderThumb>
 					</Slider>
