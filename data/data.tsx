@@ -83,6 +83,30 @@ export const emotions = [
 		label: 'Satisfaction',
 	},
 	{
+		value: 'guilt',
+		intensityBefore: 0,
+		intensityAfter: 0,
+		label: 'Guilt',
+	},
+	{
+		value: 'shame',
+		intensityBefore: 0,
+		intensityAfter: 0,
+		label: 'Shame',
+	},
+	{
+		value: 'indifference',
+		intensityBefore: 0,
+		intensityAfter: 0,
+		label: 'Indifference',
+	},
+	{
+		value: 'worry',
+		intensityBefore: 0,
+		intensityAfter: 0,
+		label: 'Worry',
+	},
+	{
 		value: 'surprise',
 		intensityBefore: 0,
 		intensityAfter: 0,
