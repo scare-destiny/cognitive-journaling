@@ -10,10 +10,8 @@ import {
 import { useController, useFormContext } from 'react-hook-form'
 import { ErrorMessage, FormValues } from '../../pages/index'
 
-const EmotionScale = ({ emotion }) => {
+const EmotionScale = () => {
 	const { control } = useFormContext<FormValues>()
-
-	console.log(`emotion is ${emotion.label}`)
 
 	const {
 		field,
@@ -58,7 +56,9 @@ const EmotionScale = ({ emotion }) => {
 					<SliderThumb boxSize={6} />
 				</Slider>
 			</Flex>
-			{errors.emotions && <ErrorMessage message={errors.emotions.message || ''} />}
+			{errors.emotions && (
+				<ErrorMessage message={errors.emotions.message?.toString() || ''} />
+			)}
 		</Box>
 	)
 }

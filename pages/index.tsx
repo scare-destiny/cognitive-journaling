@@ -67,6 +67,8 @@ const INITIAL_VALUES = {
 	alternativeThoughts: '',
 	outcome: '',
 	actionPlan: '',
+	timestamp: '',
+	id: '',
 }
 
 export type FormValues = typeof INITIAL_VALUES
@@ -134,13 +136,14 @@ const CognitiveJournalingForm = ({
 		window.location.reload()
 	}
 
-	const isDuplicateSubmission = (submissions, formResults) => {
+	const isDuplicateSubmission = (submissions: any, formResults: any) => {
 		return submissions.some(
-			(submission) => JSON.stringify(submission) === JSON.stringify(formResults)
+			(submission: any) =>
+				JSON.stringify(submission) === JSON.stringify(formResults)
 		)
 	}
 
-	const saveSubmission = (submissions, formResults) => {
+	const saveSubmission = (submissions: any, formResults: any) => {
 		submissions.push(formResults)
 		localStorage.setItem('cognitiveJournalData', JSON.stringify(submissions))
 	}

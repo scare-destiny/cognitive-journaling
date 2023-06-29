@@ -12,6 +12,10 @@ import { Select } from 'chakra-react-select'
 import { ErrorMessage, FormValues } from '../../pages/index'
 import { emotions } from '../../data/data'
 
+type SelectedOption = {
+	value: string
+}
+
 const EmotionsSelect = () => {
 	const { control } = useFormContext()
 	const {
@@ -23,7 +27,7 @@ const EmotionsSelect = () => {
 		defaultValue: [],
 	})
 
-	const handleChange = (selected) => {
+	const handleChange = (selected: SelectedOption[]) => {
 		const newEmotions = selected.map((emotion) => {
 			const existingEmotion = field.value.find((e) => e.value === emotion.value)
 			return existingEmotion ? existingEmotion : { ...emotion, intensityBefore: 0 }
